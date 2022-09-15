@@ -3,6 +3,8 @@ import DataCenterSelect from './components/DataCenterSelect';
 import ItemSelect from './components/ItemSelect'
 import { Box, HStack } from '@hope-ui/solid';
 import { ItemCostChart } from './components/ItemCostChart';
+import { HopeProvider, HopeThemeConfig } from '@hope-ui/solid';
+import { render } from 'solid-js/web';
 
 const Reseller: Component = () => {
   const [currentWorlds, setCurrentWorlds] = createSignal([0])
@@ -22,3 +24,14 @@ const Reseller: Component = () => {
 };
 
 export default Reseller;
+
+const config: HopeThemeConfig = {
+  initialColorMode:"dark"
+}
+
+render(() => (
+  <HopeProvider config={config}>
+    <Reseller />
+  </HopeProvider>
+), 
+document.getElementById('root') as HTMLElement);
