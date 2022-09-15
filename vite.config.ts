@@ -8,5 +8,11 @@ export default defineConfig({
   },
   build: {
     target: 'esnext',
+      rollupOptions: {
+        input: {
+          index: './index.html',
+          reseller: './reseller/index.html'
+        }
+      }
   },
 });
