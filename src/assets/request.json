@@ -1,0 +1,31 @@
+{
+    "indexes": "item",
+    "columns": "ID,Name_en,Icon,CanBeHq,IsUntradable",
+    "body": {
+      "query": {
+        "bool": {
+          "must": [
+            {
+              "wildcard": {
+                "NameCombined_en": ""
+              }
+            }
+          ],
+          "filter": [
+            {
+              "term": {
+                "IsUntradable": "0"
+              }
+            },
+            {
+              "term": {
+                "CanBeHq": "1"
+              }
+            }
+          ]
+        }
+      },
+      "from": 0,
+      "size": 8
+    }
+}
