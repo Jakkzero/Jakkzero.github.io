@@ -48,10 +48,27 @@ jobs:
         run: |
           npx vite build
           
+      - name: Move to dir for ACT Overlay
+        run: |
+          mkdir combatjak; cd ./combatjak
+          
+      - name: Checkout
+        uses: actions/checkout@v3
+        with: 
+          repository: Jakkzero/overlayjak
+          
+      - name: Vite build
+        run: |
+          npx vite build
+      
+      - name: Move Overlay to dist
+        run: |
+          mv ./dist ../dist/overlayjak
+          
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with: 
-          path: './dist'
+          path: '../dist'
   deploy:
     environment:
       name: github-pages
