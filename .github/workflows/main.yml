@@ -52,10 +52,14 @@ jobs:
         run: |
           mkdir combatjak; cd ./combatjak
           
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Clone Overlay
+        uses: sudosubin/git-clone-action@v1.0.1
         with: 
           repository: Jakkzero/overlayjak
+          
+      - name: Make node_modules
+        run: |
+          npm install
           
       - name: Vite build
         run: |
