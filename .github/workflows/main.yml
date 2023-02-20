@@ -48,31 +48,28 @@ jobs:
         run: |
           npx vite build
           
-      - name: Move to dir for ACT Overlay
-        run: |
-          mkdir combatjak; cd ./combatjak
-          
       - name: Clone Overlay
         uses: sudosubin/git-clone-action@v1.0.1
         with: 
           repository: Jakkzero/overlayjak
+          path: ./combatjak
           
       - name: Make node_modules
         run: |
-          npm install
+          cd ./combatjak; npm install
           
       - name: Vite build
         run: |
-          npx vite build
+          cd ./combatjak; npx vite build
       
       - name: Move Overlay to dist
         run: |
-          mv ./dist ../dist/overlayjak
+          mv ./combatjak/dist ./dist/combatjak
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with: 
-          path: '../dist'
+          path: './dist'
   deploy:
     environment:
       name: github-pages
