@@ -62,7 +62,7 @@ jobs:
       
       - name: Move Overlay to dist
         run: |
-          mv ./combatjak/dist ./dist/combatjak
+          mv ./combatjak/dist/combatjak ./dist/combatjak
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
