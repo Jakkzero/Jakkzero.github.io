@@ -50,7 +50,7 @@ jobs:
           
       - name: Clone Overlay
         run: |
-          usr/bin/git clone https://github.com:Jakkzero/combatjak.git ./combatjak
+          /usr/bin/git clone https://github.com:Jakkzero/combatjak.git ./combatjak
           
       - name: Make node_modules
         run: |
